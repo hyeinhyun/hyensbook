@@ -17,6 +17,10 @@ from django.contrib import admin
 from django.urls import path
 from django.contrib import admin
 from django.urls import path
-from hyensbooks.views import play,play2,profile
+from hyensbooks.views import play,play2,profile,newsfeed,detail
 
-urlpatterns = [    path('admin/', admin.site.urls),    path('play/', play),path('play2/', play2),path('profile/', profile)]
+urlpatterns = [    path('admin/', admin.site.urls),
+                   path('newsfeed/', newsfeed),
+                   path('play2/', play2),
+                   path('profile/', profile),
+                   path('feed/<pk>/', detail)]

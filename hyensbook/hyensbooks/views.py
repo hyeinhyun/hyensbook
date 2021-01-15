@@ -3,6 +3,8 @@ from django.shortcuts import render
 # Create your views here.
 
 from django.shortcuts import render
+from .models import Article
+
 count=0
 def play(request):
     id='bts'
@@ -24,3 +26,9 @@ def profile(request):
     global count
     count+=1
     return render(request,'profile.html',{'name' : id,'cnt' : count})
+def newsfeed(request):
+    articles = Article.objects.all()
+    return render(request,'newsfeed.html',{'articles' : articles})
+def detail(request, pk):
+    article = Article.objects.get(pk=pk)
+    return render(request, 'detail.html', {'feed': article})
